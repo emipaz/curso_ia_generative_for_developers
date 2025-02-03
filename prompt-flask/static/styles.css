@@ -32,15 +32,24 @@ h1 {
 }
 
 .rainbow {
-    animation: rainbow 1s infinite;
+    animation: rainbow 3s infinite;
 }
-
+/*
 @keyframes rainbow {
     0% { color: red; }
     25% { color: orange; }
     50% { color: yellow; }
     75% { color: green; }
     100% { color: blue; }
+}
+*/
+@keyframes rainbow {
+    0% { color: red; text-shadow: 0 0 10px red; }
+    20% { color: orange; text-shadow: 0 0 10px orange; }
+    40% { color: yellow; text-shadow: 0 0 10px yellow; }
+    60% { color: green; text-shadow: 0 0 10px green; }
+    80% { color: blue; text-shadow: 0 0 10px blue; }
+    100% { color: violet; text-shadow: 0 0 10px violet; }
 }
 
 /* Animación de cumpleaños */

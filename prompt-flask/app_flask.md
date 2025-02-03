@@ -362,24 +362,23 @@ button:hover {
 
 ## 🚀 Cómo Ejecutar la Aplicación
 
-1️⃣ Abre la terminal en la carpeta del proyecto y ejecuta:
+### 1️⃣ Abre la terminal en la carpeta del proyecto y ejecuta:
 
 ```bash
 python app.py
 ```
 
-2️⃣ Abre un navegador y ve a http://127.0.0.1:5000/
-3️⃣ Ingresa un nombre, apellido y fecha de nacimiento, y presiona enviar.
-4️⃣ Verás tu nombre en colores y, si es tu cumpleaños, ¡una animación especial! 🎉
+### 2️⃣ Abre un navegador y ve a http://127.0.0.1:5000/
+### 3️⃣ Ingresa un nombre, apellido y fecha de nacimiento, y presiona enviar.
+### 4️⃣ Verás tu nombre en colores y, si es tu cumpleaños, ¡una animación especial! 🎉
 
-🎯 Explicación
+## 🎯 Explicación
 
-Calculamos cuántos días faltan para el cumpleaños.
-Dependiendo de los días, aplicamos un color diferente.
-Si es el día del cumpleaños, agregamos una animación con CSS.
-Con esto tienes una aplicación Flask interactiva y llamativa. Si necesitas mejoras, dime y lo ajustamos. 🚀🎂
-
+- Calculamos cuántos días faltan para el cumpleaños.
+- Dependiendo de los días, aplicamos un color diferente.
+- Si es el día del cumpleaños, agregamos una animación con CSS.
+- Con esto tienes una aplicación Flask interactiva y llamativa. Si necesitas mejoras, dime y lo ajustamos. 🚀🎂
 
 
 > Nota
-> Despues seguimos iterendo para cambiar algo en codigo ej que calcule la edad y la muestre.
+> Despues seguimos iterando para cambiar algo en codigo ej que calcule la edad y la muestre.
