@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="{{ color }}">{{ nombre }} {{ apellido }}</h1>
+
+        {% if es_cumple %}
+            <h2>¡Feliz cumpleaños! 🎉🎂</h2>
+            <div class="celebration"></div>
+        {% else %}
+            <p>Faltan <strong>{{ dias_faltantes }}</strong> días para tu cumpleaños.</p>
+            <a href="/">Volver</a>
+        {% endif %}
+        <p>Tu edad es: <strong>{{ edad }}</strong> años.</p>
+    </div>
+</body>
+</html>
