@@ -38,6 +38,16 @@ class TestPersona(unittest.TestCase):
         with self.assertRaises(AttributeError):
             persona.dni = "Nuevodni"  # Intentar cambiar un atributo inmutable
 
+    def test_agregar_dni_persona_sin_dni(self):
+        persona = Persona("Sofía Castro", "1992-09-10")
+        persona.set_dni("888888")
+        self.assertEqual(persona.dni, "888888")
+
+    def test_agregar_dni_persona_con_dni(self):
+        persona = Persona("Sofía Castro", "1992-09-10",  "888888")
+        with self.assertRaises(AttributeError):
+            persona.set_dni("888888")
+
     def test_igualdad_instancias(self):
         persona_1 = Persona("Laura Torres", "1995-07-15", "A12345678")
         persona_2 = Persona("Laura Torres", "1995-07-15", "A12345678")
@@ -62,7 +72,12 @@ class TestPersona(unittest.TestCase):
         persona = Persona("Ernesto Ruiz", "1974-11-30")
         with self.assertRaises(AttributeError):
             persona.nuevo_attr = "nuevo Atributo"
-        
+
+    def test_sgregar_attr_x_dict(self):
+        persona = Persona("Ernesto Ruiz", "1974-11-30")
+        with self.assertRaises(AttributeError):
+            persona.__dict__["nuevo_atributo"] = "nuevo"
+            
 
 # Ejecutar las pruebas
 if __name__ == '__main__':

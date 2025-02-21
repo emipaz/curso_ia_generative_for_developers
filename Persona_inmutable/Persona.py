@@ -10,7 +10,7 @@ class Persona:
     Se Puede implentar mas Atributos agrgandolos a __dict__
     """
     
-    __slots__ = ('_nombre', '_fecha_nacimiento', '_bloqueado', '_dni', '__dict__')
+    __slots__ = ('_nombre', '_fecha_nacimiento', '_bloqueado', '_dni',"_profesion")
 
     # Diccionario de patrones para validación de fechas
     __patrones_fechas = {
@@ -18,7 +18,7 @@ class Persona:
         "DD-MM-AAAA": re.compile(r'(\d{2})[-:,.//](\d{2})[-:,.//](\d{4})')
     }
 
-    def __init__(self, nombre, fecha_nacimiento, dni=""):
+    def __init__(self, nombre, fecha_nacimiento,/, dni="" ,*,profesion = None ):
         """
         Inicializa una nueva instancia de Persona.
         
@@ -31,7 +31,7 @@ class Persona:
         super().__setattr__('_fecha_nacimiento', self.validar_fecha(fecha_nacimiento))
         super().__setattr__("_dni", dni)
         super().__setattr__('_bloqueado', bool(dni))
-        super().__setattr__('__dict__', {})
+        super().__setattr__('_profesion', profesion)
 
     def validar_fecha(self, fecha):
         """
@@ -68,10 +68,11 @@ class Persona:
                     raise ValueError(f"Fecha no válida: {fecha}")
 
         raise ValueError(f"Formato de fecha no reconocido: {fecha}")
+        
     def __setattr__(self, nombre, valor):
         """Controla la asignación de atributos a la instancia."""
         if nombre not in self.__slots__:
-            if not hasattr(self.__class__, f"{nombre}setter"):
+            if not hasattr(self.__class__, f"{nombre}"):
                 raise AttributeError(f"No puedes agregar el atributo '{nombre}'")
             super().__setattr__(nombre, valor)  # Asigna el valor
         else:
@@ -111,16 +112,18 @@ class Persona:
     @property
     def profesion(self):
         """Devuelve la profesión de la persona si está establecida."""
-        return self.__dict__.get("profesion", None)
+        return self._profesion
 
     def set_profesion(self, valor):
         """Establece la profesión de la persona."""
-        self.__dict__["profesion"] = valor
+        super().__setattr__("_profesion", valor)
 
+    
     def obtener_atributos(self):
-        """Devuelve un diccionario con los atributos inmutables y los mutables."""
+        """Devuelve un diccionario con los atributos."""
         return {
             'nombre': self._nombre,
             'fecha_nacimiento': self._fecha_nacimiento,
             'dni': self._dni,
-            **self.__dict__}
+            "profesion": self._profesion}
+
