@@ -77,6 +77,7 @@ class Persona:
             super().__setattr__(nombre, valor)  # Asigna el valor
         else:
             raise AttributeError(f"No puedes modificar '{nombre}'")
+        
 
     def __eq__(self, otro):
         """Compara dos objetos Persona."""
@@ -117,7 +118,6 @@ class Persona:
     def set_profesion(self, valor):
         """Establece la profesión de la persona."""
         super().__setattr__("_profesion", valor)
-
     
     def obtener_atributos(self):
         """Devuelve un diccionario con los atributos."""
@@ -125,5 +125,5 @@ class Persona:
             'nombre': self._nombre,
             'fecha_nacimiento': self._fecha_nacimiento,
             'dni': self._dni,
-            "profesion": self._profesion}
+            "profesion": self._profesion,}
 
