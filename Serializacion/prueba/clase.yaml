@@ -1,0 +1,18 @@
+# archivo yaml
+prompt: un jarron roto sobre una mesa de madera
+model: dall-e-3
+n: 1
+size: 1024x1024
+quality: hd
+style: natural
+response_format: b64_json
+filename: jarron.png
+---
+prompt: niños jigando a las cartas mientras son observados por un perro rabioso
+model: dall-e-3
+n: 1
+size: 1024x1024
+quality: hd
+style: natural
+response_format: b64_json
+filename: perro.png

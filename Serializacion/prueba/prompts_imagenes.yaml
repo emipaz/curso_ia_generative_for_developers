@@ -1,0 +1,142 @@
+# =======================================
+# Archivo YAML para solicitar imágenes IA
+# Compatible con: dalle-e-2, dalle-e-3, gpt-image-1
+# =======================================
+
+# prompt: Descripción textual de la imagen a generar
+# ej:
+# prompt: Una escena de un bosque encantado con árboles altos y luces brillantes
+
+# model: Modelo a utilizar
+# - dall-e-2
+# - dall-e-3
+# - gpt-image-1
+# model: dall-e-3
+
+# n: Cantidad de imágenes a generar (máximo 10)
+
+# =======================================
+# Tamaño de imagen según modelo
+# =======================================
+# dall-e-2:
+#   - 256x256
+#   - 512x512
+#   - 1024x1024 (default)
+#
+# dall-e-3:
+#   - 1024x1024 (cuadrado)
+#   - 1024x1792 (vertical)
+#   - 1792x1024 (horizontal)
+#   - auto (selección automática)
+#
+# gpt-image-1:
+#   - 1024x1024 (cuadrado, default)
+#   - 1024x1536 (vertical)
+#   - 1536x1024 (horizontal)
+#   - auto
+
+# =======================================
+# Calidad de imagen
+# =======================================
+# dall-e-2:
+#   - standard (default)
+#
+# dall-e-3:
+#   - standard (default)
+#   - hd
+#
+# gpt-image-1:
+#   - low
+#   - medium
+#   - high
+#   - auto (default)
+
+
+# =======================================
+# Formato de respuesta de la API
+# =======================================
+# response_format: 
+# dall-e-2 y dalle-e-3:
+#   - url (default) -> válido por 60 minutos
+#   - b64_json 
+#
+# gpt-image-1:
+# Este parámetro no es compatible con `gpt-image-1`, 
+# que siempre devolverá imágenes codificadas en base64.
+#   - b64_json (único formato disponible)
+# el script va a guardar la imagen en el disco
+#   - url (no disponible)
+
+
+# =======================================
+# Estilo visual (solo dall-e-3)
+# =======================================
+# style:
+#   - vivid (hiperrealista, colores vibrantes)
+#   - natural (más realista y suave)
+# style: vivid
+
+# =======================================
+# Exclusivo de gpt-image-1
+# =======================================
+
+# output_format: Formato de imagen de salida
+#   - png (default, admite transparencia)
+#   - jpeg (no admite transparencia)
+#   - webp (admite transparencia, buena compresión)
+# output_format: png
+
+# output_compression: Nivel de compresión (solo jpeg/webp), 0–100
+#   - 100: sin compresión (alta calidad)
+#   - 0: máxima compresión (menor calidad)
+# output_compression: 75
+
+# background: Tipo de fondo
+#   - transparent (solo png/webp)
+#   - opaque
+#   - auto
+# background: transparent
+
+# moderation: Nivel de moderación de contenido
+#   - low
+#   - auto (default)
+# moderation: auto
+
+# =======================================
+# nombre de la imagen a guardar
+# =======================================
+# filename: Nombre del archivo de imagen a guardar
+
+# imagen 1
+prompt: Una escena de un bosque encantado con árboles altos y luces brillantes
+model: dall-e-2
+n: 1
+size: 1024x1024
+# quality: standard
+response_format: b64_json
+filename: bosque_encantado_dall2.png
+---
+
+# imagen 2
+
+prompt: Una escena de un bosque encantado con árboles altos y luces brillantes
+model: dall-e-3
+n: 1
+size: 1024x1024
+quality: standard
+style: vivid
+response_format: url
+filename: bosque_encantado_dall3.png
+
+---
+
+prompt: Una escena de un bosque encantado con árboles altos y luces brillantes
+model: gpt-image-1
+n: 1
+size: 1024x1024
+quality: medium
+# response_format: b64_json
+output_format: png
+background: opaque
+moderation: auto
+filename: bosque_gpt_image.png
